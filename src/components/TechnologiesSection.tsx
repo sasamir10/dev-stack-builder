@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import type { Technology } from "../types/technology";
 import TechnologyCard from "./TechnologyCard";
+import YourStack from "./YourStack";
 
 export default function TechnologiesSection() {
     const [technologies, setTechnologies] = useState<Technology[]>([]);
+    const [selectedTechnologies, setSelectedTechnologies] = useState<
+        Technology[]
+    >([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
 
@@ -29,6 +33,31 @@ export default function TechnologiesSection() {
 
         loadTechnologies();
     }, []);
+
+    function handleAddTechnology(technology: Technology) {
+        const alreadySelected = selectedTechnologies.some(
+            (item) => item.id === technology.id,
+        );
+
+        if (alreadySelected) {
+            return;
+        }
+
+        setSelectedTechnologies((currentStack) => [
+            ...currentStack,
+            technology,
+        ]);
+    }
+
+    function handleRemoveTechnology(id: string) {
+        setSelectedTechnologies((currentStack) =>
+            currentStack.filter((technology) => technology.id !== id),
+        );
+    }
+
+    function handleRemoveAll() {
+        setSelectedTechnologies([]);
+    }
 
     return (
         <section id="technologies" className="bg-white py-20 sm:py-24">
@@ -63,13 +92,27 @@ export default function TechnologiesSection() {
                 )}
 
                 {!isLoading && !error && (
-                    <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {technologies.map((technology) => (
-                            <TechnologyCard
-                                key={technology.id}
-                                technology={technology}
+                    <div className="mt-10 grid gap-6 lg:grid-cols-4">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-3 xl:grid-cols-3">
+                            {technologies.map((technology) => (
+                                <TechnologyCard
+                                    key={technology.id}
+                                    technology={technology}
+                                    isAdded={selectedTechnologies.some(
+                                        (item) => item.id === technology.id,
+                                    )}
+                                    onAdd={handleAddTechnology}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="lg:sticky lg:top-24 lg:col-span-1 lg:self-start">
+                            <YourStack
+                                selectedTechnologies={selectedTechnologies}
+                                onRemove={handleRemoveTechnology}
+                                onRemoveAll={handleRemoveAll}
                             />
-                        ))}
+                        </div>
                     </div>
                 )}
             </div>
