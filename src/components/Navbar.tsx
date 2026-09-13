@@ -6,7 +6,7 @@ const navLinks = ["Home", "Technologies", "Projects", "About", "Contact"];
 export default function Navbar() {
     return (
         <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
-            <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-5 lg:px-8">
+            <div className="mx-auto flex h-17 max-w-7xl items-center justify-between px-5 lg:px-8">
                 <a href="#home" className="hidden md:block">
                     <img
                         src={logoText}
@@ -36,7 +36,10 @@ export default function Navbar() {
                         Sign In
                     </button>
 
-                    <button className="rounded-lg bg-[var(--brand-gradient)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02]">
+                    <button
+                        style={{ backgroundImage: "var(--brand-gradient)" }}
+                        className="rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02]"
+                    >
                         Sign Up
                     </button>
                 </div>
@@ -66,7 +69,10 @@ export default function Navbar() {
                             Sign In
                         </button>
 
-                        <button className="rounded-lg bg-[var(--brand-gradient)] px-3 py-2 text-xs font-semibold text-white">
+                        <button
+                            style={{ backgroundImage: "var(--brand-gradient)" }}
+                            className="rounded-lg px-3 py-2 text-xs font-semibold text-white"
+                        >
                             Sign Up
                         </button>
                     </div>
