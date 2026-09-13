@@ -8,7 +8,7 @@ Dev Stack Builder is a responsive React application for exploring development te
 
 ## 📸 Preview
 
-![Dev Stack Builder preview](./public/project-preview.png)
+![Dev Stack Builder preview]
 
 ## ✨ Features
 
