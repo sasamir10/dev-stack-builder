@@ -2,11 +2,15 @@
 
 Dev Stack Builder is a responsive React application for exploring development technologies and building a personalized technology stack. Users can browse technologies, add them to a stack, remove selections, and receive clear feedback through toast notifications.
 
-## Live Demo
+## 🌐 Live Demo
 
 [View the deployed project](https://dev-stack-brown-one.vercel.app/)
 
-## Features
+## 📸 Preview
+
+![Dev Stack Builder preview](./public/project-preview.png)
+
+## ✨ Features
 
 - Responsive sticky navigation with a mobile menu
 - Hero section with a shared cyan-to-blue-to-fuchsia brand gradient
@@ -20,7 +24,7 @@ Dev Stack Builder is a responsive React application for exploring development te
 - Loading and error states for technology data
 - Responsive footer and Vercel production deployment
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - React 19
 - TypeScript
@@ -29,14 +33,14 @@ Dev Stack Builder is a responsive React application for exploring development te
 - React-Toastify
 - Lucide React
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### 📋 Prerequisites
 
 - Node.js 20 or later
 - npm
 
-### Installation
+### 💻 Installation
 
 ```bash
 git clone <your-repository-url>
@@ -44,7 +48,7 @@ cd dev-stack-builder-website
 npm install
 ```
 
-### Run Locally
+### ▶️ Run Locally
 
 ```bash
 npm run dev
@@ -52,7 +56,7 @@ npm run dev
 
 Open the local URL displayed by Vite, usually `http://localhost:5173`.
 
-## Available Scripts
+## 📜 Available Scripts
 
 ```bash
 npm run dev       # Start the local development server
@@ -61,7 +65,7 @@ npm run preview   # Preview the production build locally
 npm run lint      # Run ESLint
 ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 src/
@@ -74,10 +78,10 @@ public/
   technologies.json # Technology data loaded by the application
 ```
 
-## Deployment
+## ▲ Deployment
 
 The project is deployed on Vercel. Push changes to the `main` branch to trigger an automatic production deployment.
 
-## Author
+## 👤 Author
 
 Sabbir Ahmed
