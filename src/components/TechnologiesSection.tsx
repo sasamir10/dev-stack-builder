@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import type { Technology } from "../types/technology";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
@@ -40,6 +41,7 @@ export default function TechnologiesSection() {
         );
 
         if (alreadySelected) {
+            toast.error(`${technology.name} is already in your stack.`);
             return;
         }
 
@@ -47,16 +49,33 @@ export default function TechnologiesSection() {
             ...currentStack,
             technology,
         ]);
+
+        toast.success(`${technology.name} added to your stack.`);
     }
 
     function handleRemoveTechnology(id: string) {
+        const removedTechnology = selectedTechnologies.find(
+            (technology) => technology.id === id,
+        );
+
+        if (!removedTechnology) {
+            return;
+        }
+
         setSelectedTechnologies((currentStack) =>
             currentStack.filter((technology) => technology.id !== id),
         );
+
+        toast.info(`${removedTechnology.name} removed from your stack.`);
     }
 
     function handleRemoveAll() {
+        if (selectedTechnologies.length === 0) {
+            return;
+        }
+
         setSelectedTechnologies([]);
+        toast.info("All technologies removed from your stack.");
     }
 
     return (
@@ -80,8 +99,15 @@ export default function TechnologiesSection() {
                 </div>
 
                 {isLoading && (
-                    <div className="py-16 text-center text-slate-500">
-                        Loading technologies...
+                    <div
+                        role="status"
+                        className="flex min-h-80 flex-col items-center justify-center gap-4"
+                    >
+                        <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-100 border-t-cyan-500" />
+
+                        <p className="text-sm font-medium text-slate-500">
+                            Loading technologies...
+                        </p>
                     </div>
                 )}
 
