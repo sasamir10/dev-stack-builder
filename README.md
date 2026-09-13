@@ -84,4 +84,21 @@ The project is deployed on Vercel. Push changes to the `main` branch to trigger 
 
 ## 👤 Author
 
-Sabbir Ahmed
+Sabbir Ahmed Samir
+
+## ⚛️ Answering React Questions
+
+i. JSX is basically Java Script XML. When we write HTML like code in JS is called JSX. We use JSX in React beacause it allows to write HTML like code in JS. This isn't mandatory to write JSX in React. But JSX provide Synthetic sugar to write React code easier and comfortable.
+
+ii. Props are used to pass data from a parent component to a child component.
+State is used to store and manage data inside a component that can change over time.
+
+iii. useState is a React hook that allows us to create and update state in a functional component. I used it to store dynamic data like the selected stack, user inputs, and UI changes.
+
+iv. useEffect is used to run side effects after a component renders. I used it to load the JSON data when the component first appeared, so the data was available to display in the application.
+
+v. The key helps React identify each item in a list and update only the changed items efficiently. It also prevents rendering issues when the list changes.
+
+vi. Conditional rendering means showing different UI based on a condition. For example, I used it to show an "empty stack" message when no items were selected, and show the stack items when data was available.
+
+vii. A parent sends data to a child using props. A child can send data back by calling a function that the parent passes down as a prop.
