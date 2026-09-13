@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Check, Star } from "lucide-react";
 import type { Technology } from "../types/technology";
 
 interface TechnologyCardProps {
@@ -53,13 +53,20 @@ export default function TechnologyCard({
                 type="button"
                 disabled={isAdded}
                 onClick={() => onAdd?.(technology)}
-                className={`mt-5 w-full rounded-lg py-3 text-sm font-semibold transition-colors ${
+                className={`mt-5 flex w-full items-center justify-center gap-2 rounded-lg py-3 text-sm font-semibold transition-colors ${
                     isAdded
                         ? "cursor-not-allowed bg-slate-100 text-slate-400"
                         : "bg-slate-950 text-white hover:bg-slate-800"
                 }`}
             >
-                {isAdded ? "Added to Stack" : "Add to Stack"}
+                {isAdded ? (
+                    <>
+                        <Check size={16} />
+                        Added to Stack
+                    </>
+                ) : (
+                    "Add to Stack"
+                )}
             </button>
         </article>
     );
